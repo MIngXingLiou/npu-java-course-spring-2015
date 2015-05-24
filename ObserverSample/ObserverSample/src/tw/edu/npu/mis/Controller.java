@@ -36,6 +36,10 @@ public class Controller {
 
     private final Model mModel;
 
+    /**
+     * controller is model control
+     * @param model 
+     */
     public Controller(Model model) {
         mModel = model;
     }

@@ -26,13 +26,13 @@
 package tw.edu.npu.mis;
 
 /**
- *
+ *attach,detach,motifyObserver don't do anything
  * @author STP
  */
 public class Subject {
-    public void attach(Obsever o){
+    public void attach(Observer o){
     }
-    public void detach(Obsever o){
+    public void detach(Observer o){
     }
     public void motifyObserver(){
     }

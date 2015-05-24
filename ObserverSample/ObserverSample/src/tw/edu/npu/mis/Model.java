@@ -39,7 +39,7 @@ public class Model {
     }
     /**
      * Get model content.
-     *
+     *getData is return mData
      * @return {@link String}
      */
     public String getData() {

@@ -31,6 +31,8 @@ import java.util.List;
 /**
  * Simulation of a GUI application.
  *
+ * 
+ * 
  * @author Samael Wang <freesamael@gmail.com>
  */
 public class ObserverSample {
@@ -51,6 +53,7 @@ public class ObserverSample {
         views.add(new View("View 1", window, model));
         views.add(new View("View 2", window, model));
         views.add(new View("View 3", window, model));
+        views.add(new AlternativeView("AlternativeView", window, model));
 
         // Start the event loop.
         window.startEventLoop(controller, views);

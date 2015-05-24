@@ -37,9 +37,15 @@ public interface Observer {
         mModel = model;
         model.attach(this);
     }
+    /*
+    *isvalid is return mIsValid
+    */
     public boolean isValid(){
         return mIsValid; 
     }
+    /*
+    *show is print string
+    */
     public void show(){
         System.out.print("Alternative: ");
         System.out.printIn(new StringBuilder(mModel.getDate()).reverse());
