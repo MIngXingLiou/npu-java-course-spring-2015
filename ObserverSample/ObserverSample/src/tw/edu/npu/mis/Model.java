@@ -31,9 +31,12 @@ package tw.edu.npu.mis;
  * @author Samael Wang <freesamael@gmail.com>
  */
 public class Model {
-
-    private String mData;
-
+    
+    private View mView;
+    private String mData = "";
+    public Model(View v){
+        mView = v; 
+    }
     /**
      * Get model content.
      *
@@ -49,7 +52,10 @@ public class Model {
      * @param data A {@link String} data.
      */
     public void setData(String data) {
+       if(!mData.equals(data)){
         mData = data;
+        mView.invalidate();
+       }
     }
 
 }

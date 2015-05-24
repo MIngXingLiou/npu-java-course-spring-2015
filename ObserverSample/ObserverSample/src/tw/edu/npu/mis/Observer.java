@@ -32,7 +32,7 @@ package tw.edu.npu.mis;
 public interface Observer {
     private final Model mModel;
     private boolean mIsValid;
-    
+    void update(); 
     public AlternativeView(Model model){
         mModel = model;
         model.attach(this);
