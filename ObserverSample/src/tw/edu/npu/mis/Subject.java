@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, STP
+ * Copyright (c) 2015, user
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,38 @@
  */
 package tw.edu.npu.mis;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
- * @author STP
+ * @author user
  */
 public class Subject {
+    public List<Observer> ObserverList = new ArrayList<Observer>();
     
+    /**
+     * @param o 
+     * 新增需要註冊的View
+     */
+    public void attach(Observer o) {
+        ObserverList.add(o);
+    }
+    
+    /**
+     * @param o 
+     * 移除沒有需要註冊的View
+     */
+    public void detach(Observer o) {
+        ObserverList.remove(o);
+    }
+    
+    /**
+     * Model一有變動需要呼叫所有註冊的View
+     */
+    public void notifyObserver() {
+        for(Observer o: ObserverList) {
+            o.update();
+        }
+    }
 }
