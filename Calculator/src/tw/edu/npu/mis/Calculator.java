@@ -17,13 +17,12 @@ package tw.edu.npu.mis;
  * The model class of the calculator application.
  */
 public class Calculator extends java.util.Observable {
-    String s = "",addend;
     int count,count2;
- 
+    String s = "",addend;
+    
     /**
      * The available operators of the calculator.
      */
-  
     public enum Operator {
         CLEAR,       // C
         CLEAR_ENTRY, // CE
@@ -65,20 +64,13 @@ public class Calculator extends java.util.Observable {
      * @param operator 
      */
     public void performOperation(Operator operator) {
-        if(operator == Operator.PLUS)
-        {
-          count = Integer.parseInt(s);
-          s= "";
-          getDisplay() ;
-          addend = "+";
-        }
-        if(operator == Operator.CLEAR)
+       if(operator == Operator.CLEAR)
         {
           s= "";
           getDisplay() ;
           
         }
-        if(operator == Operator.MINUS)
+       if(operator == Operator.MINUS)
         {
           count = Integer.parseInt(s);
           s= "";
@@ -86,7 +78,23 @@ public class Calculator extends java.util.Observable {
           addend = "-";
          
         }
+       
+        if(operator == Operator.PLUS)
+        {
+          count = Integer.parseInt(s);
+          s= "";
+          getDisplay() ;
+          addend = "+";
+        }
         
+          if(operator == Operator.OVER)
+        {
+          count = Integer.parseInt(s);
+          s= "";
+          getDisplay() ;
+          addend = "/";
+        }
+          
          if(operator == Operator.TIMES)
         {
           count = Integer.parseInt(s);
@@ -94,20 +102,21 @@ public class Calculator extends java.util.Observable {
           getDisplay() ;
           addend = "*";
         }
-         
-         if(operator == Operator.OVER)
-        {
-          count = Integer.parseInt(s);
-          s= "";
-          getDisplay() ;
-          addend = "/";
-        }
+     
         /**
          * Enter "equal" four computing application
          */
        
         if(operator == Operator.EQUAL)
         {
+            if("-".equals(addend))
+            {
+                count2 = Integer.parseInt(s);
+                s = String.valueOf(count-count2);
+                getDisplay();
+                
+            }
+            
             if("+".equals(addend))
             {
                 count2 = Integer.parseInt(s);
@@ -115,12 +124,10 @@ public class Calculator extends java.util.Observable {
                 getDisplay();
                 
             }
-            
-            
-            if("-".equals(addend))
+               if("/".equals(addend))
             {
                 count2 = Integer.parseInt(s);
-                s = String.valueOf(count-count2);
+                s = String.valueOf(count/count2);
                 getDisplay();
                 
             }
@@ -133,19 +140,8 @@ public class Calculator extends java.util.Observable {
                 //s= "";
             }
           
-              if("/".equals(addend))
-            {
-                count2 = Integer.parseInt(s);
-                s = String.valueOf(count/count2);
-                getDisplay();
-                
-            }
-           
-            
         }
-    
-        
-        
+     
     }
     /**
      * Reception display processing
